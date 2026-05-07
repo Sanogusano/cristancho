@@ -1,10 +1,12 @@
+from PIL import Image as _PIL_Image
+_APP_ICON = _PIL_Image.open("assets/mascot.png")
 import streamlit as st
 import pandas as pd
 from datetime import datetime
 from utils import db, style
 from utils.export import export_resurtido
 
-st.set_page_config(page_title="Resurtido", page_icon="📦", layout="wide")
+st.set_page_config(page_title="Resurtido", page_icon=_APP_ICON, layout="wide")
 style.apply()
 st.title("📦 Orden de Resurtido")
 st.caption("Productos para transferir desde Bodega Principal o solicitar a Distribuidores → CEDI Guayabal")
