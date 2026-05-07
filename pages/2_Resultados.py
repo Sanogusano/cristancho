@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
-from utils import db
+from utils import db, style
 from utils.triangulate import STATUS_LABELS, STATUS_COLORS
 
 st.set_page_config(page_title="Resultados", page_icon="📊", layout="wide")
+style.apply()
 st.title("📊 Resultados — Triangulación")
 
 # ── Determinar fuente de datos ───────────────────────────────────────────────
