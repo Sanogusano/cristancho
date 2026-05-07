@@ -1,3 +1,5 @@
+from PIL import Image as _PIL_Image
+_APP_ICON = _PIL_Image.open("assets/mascot.png")
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -6,7 +8,7 @@ from utils.triangulate import triangulate, summary_stats, STATUS_LABELS
 from utils.export import export_triangulation, export_resurtido
 from utils import db, style
 
-st.set_page_config(page_title="Cristancho · Subir", page_icon="⛏️", layout="wide")
+st.set_page_config(page_title="Cristancho · Subir", page_icon=_APP_ICON, layout="wide")
 style.apply()
 style.header("Subir Archivos — Nueva Triangulacion")
 
