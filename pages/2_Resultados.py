@@ -1,9 +1,11 @@
+from PIL import Image as _PIL_Image
+_APP_ICON = _PIL_Image.open("assets/mascot.png")
 import streamlit as st
 import pandas as pd
 from utils import db, style
 from utils.triangulate import STATUS_LABELS, STATUS_COLORS
 
-st.set_page_config(page_title="Resultados", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Resultados", page_icon=_APP_ICON, layout="wide")
 style.apply()
 st.title("📊 Resultados — Triangulación")
 
