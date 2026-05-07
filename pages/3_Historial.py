@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
-from utils import db
+from utils import db, style
 
 st.set_page_config(page_title="Historial", page_icon="📈", layout="wide")
+style.apply()
 st.title("📈 Historial de Runs")
 
 if not db.is_configured():
