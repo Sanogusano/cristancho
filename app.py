@@ -1,7 +1,5 @@
-import os as _os
 from PIL import Image as _PIL_Image
-_APP_ICON = _PIL_Image.open(_os.path.join(_os.path.dirname(__file__), "assets", "mascot.png"))
-
+_APP_ICON = _PIL_Image.open("assets/mascot.png")
 import streamlit as st
 import pandas as pd
 from utils import db
@@ -49,11 +47,11 @@ else:
     pct_ok = round(last["ok_count"] / total * 100, 1)
 
     c1, c2, c3, c4, c5 = st.columns(5)
-    with c1: style.slot_card("🗂", "Total SKUs",   f"{last['total_skus']:,}")
-    with c2: style.slot_card("✅", "OK",           f"{last['ok_count']:,}",        color="#55FF55")
-    with c3: style.slot_card("⚠️", "Stock oculto", f"{last['ns_mayor_count']:,}",  color="#FFB800")
-    with c4: style.slot_card("🔴", "Sobreventa",   f"{last['sho_mayor_count']:,}", color="#FF5555")
-    with c5: style.slot_card("📦", "Resurtido",    f"{last['resurtido_count']:,}", color="#3EEBD0")
+    with c1: style.slot_card("🗂", "Total SKUs",    f"{last['total_skus']:,}")
+    with c2: style.slot_card("✅", "OK",            f"{last['ok_count']:,}",        color="#55FF55")
+    with c3: style.slot_card("⚠️", "Stock oculto",  f"{last['ns_mayor_count']:,}",  color="#FFB800")
+    with c4: style.slot_card("🔴", "Sobreventa",    f"{last['sho_mayor_count']:,}", color="#FF5555")
+    with c5: style.slot_card("📦", "Resurtido",     f"{last['resurtido_count']:,}", color="#3EEBD0")
 
     st.markdown("<br>", unsafe_allow_html=True)
     style.xp_bar(pct_ok, label="Salud del inventario (% SKUs sincronizados)", color="#55A038")
@@ -68,6 +66,7 @@ else:
             st.session_state["run_id"] = last["id"]
             st.switch_page("pages/2_Resultados.py")
 
+# Historial resumido
 all_runs = db.get_runs(limit=8)
 if len(all_runs) > 1:
     style.section_title("📜", "Historial reciente")
